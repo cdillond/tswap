@@ -40,14 +40,12 @@ func AutoUpdate(t *template.Template, dir string, rwm *sync.RWMutex) chan error 
 					errChan <- errors.New("AutoUpdater shutting down")
 					return
 				}
-				fmt.Println(event)
-				rwm.Lock()
 				temp, err := template.ParseGlob(dir + `*`)
 				if err != nil {
 					errChan <- fmt.Errorf("tswap AutoUpdate error: %w", err)
-					rwm.Unlock()
 					continue
 				}
+				rwm.Lock()
 				*t = *temp
 				rwm.Unlock()
 			case err, ok := <-watcher.Errors:
