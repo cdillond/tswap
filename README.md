@@ -15,14 +15,14 @@ import (
 
 type App struct {
 	Mux *http.ServeMux
-    Rwm sync.RWMutex
+    	Rwm sync.RWMutex
 	T   *template.Template
 }
 
 func main() {
 	a := App{
 		Mux: http.NewServeMux(),
-        Rwm: sync.RWMutex{},
+        	Rwm: sync.RWMutex{},
 	}
 	dir := `templates/`
 	t, err := template.ParseGlob(dir + `*`)
@@ -47,7 +47,7 @@ func main() {
 func (a *App) Index(w http.ResponseWriter, r *http.Request) {
 	a.Rwm.RLock()
 	t, err := a.T.Lookup(`index.html`).Clone()
-    a.Rwm.RUnlock()
+    	a.Rwm.RUnlock()
 	if err != nil {
 		return
 	}
