@@ -1,4 +1,4 @@
-module tswap
+module github.com/cdillond/tswap
 
 go 1.18
 
