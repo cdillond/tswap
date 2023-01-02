@@ -1,5 +1,5 @@
 # tswap
-Package tswap automatically updates an html/template.Template when files in the directory where the template definitions are stored are updated. This can be useful if you want to work on changes to a website's UI without recompiling your application every time minor updates to a template definition file are made. tswap is dependent on github.com/fsnotify/fsnotify, which works for most, but not all, commonly used OS's.
+Package `tswap` automatically updates an `html/template.Template` when files in the directory where the template definitions are stored are updated. This can be useful if you want to work on changes to a website's UI without recompiling your application every time minor updates to a template definition file are made. `tswap` is dependent on `github.com/fsnotify/fsnotify`, which works for most, but not all, commonly used OS's.
 # Example
 ```go
 package main
